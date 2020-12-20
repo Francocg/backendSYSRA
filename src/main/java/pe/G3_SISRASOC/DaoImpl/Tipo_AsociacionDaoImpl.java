@@ -32,7 +32,7 @@ public class Tipo_AsociacionDaoImpl implements Tipo_AsociacionDao {
 		simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
 				.withCatalogName("PKG_T_ASOCIACION") //nombre del paquete
 				.withProcedureName("SP_LIS_T_ASOCIACION") //nombre del procedimiento
-				.declareParameters(new SqlOutParameter("CUR_T_ASOCIACION", OracleTypes.REF_CURSOR, new ColumnMapRowMapper()));	
+				.declareParameters(new SqlOutParameter("CURSOR_T_ASOCIACION", OracleTypes.REF_CURSOR, new ColumnMapRowMapper()));	
 				Map<String, Object> map = simpleJdbcCall.execute();
 				tipo.add(map);
 		return tipo;

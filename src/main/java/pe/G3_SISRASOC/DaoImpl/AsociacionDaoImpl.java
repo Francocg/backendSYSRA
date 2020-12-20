@@ -38,16 +38,23 @@ public class AsociacionDaoImpl implements AsociacionDao{
 	@Override
 	public int create(Asociacion a) {
 		// TODO Auto-generated method stub
-		return jdbcTemplate.update("call pk_asociacion.sp_ins_asociacion(?,?,?,?,?,?,?,?)",
-			
-			a.getEstado(),
-				a.getNom_asc(),
-				a.getImf_adicional(),
-				a.getN_mienbros(),
-				a.getF_constitucion(),
-				a.getUbicacion(),
-				a.getTipo_asociacion_id_asc_tipo(),	
-				a.getCasa_vecinal_id_asc_cv());
+		return jdbcTemplate.update("call PKG_ASOCIACION.SP_CREATE_ASOCIACIONES(?,?,?,?,?,?,?,?)",
+				//return jdbcTemplate.update("call PK_ASOCIACION.SP_ins_ASOCIACION(?,?,?,?,?,?,?,?)",
+		a.getEstado(),
+		a.getNom_asc(),
+		a.getImf_adicional(),
+		a.getN_mienbros(),
+		a.getF_constitucion(),
+		a.getTipo_asociacion_id_asc_tipo(),
+		a.getCasa_vecinal_id_asc_cv(),
+		a.getUbicacion());
+	}
+
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		String SQL = "delete from asociacion where id_asoc=?";
+		return jdbcTemplate.update(SQL,id);
 	}
 
 	

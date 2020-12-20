@@ -27,5 +27,11 @@ public class AsociacionServiceImpl implements AsociacionService {
 		return as.create(a);
 	}
 
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return as.delete(id);
+	}
+
 	
 }
